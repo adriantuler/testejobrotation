@@ -1,0 +1,17 @@
+import json
+
+with open("faturamento.json") as file:
+    faturamento_mensal = json.load(file)
+
+dias_no_mes = len(faturamento_mensal)
+soma_faturamento = sum(faturamento_mensal)
+media_mensal = soma_faturamento / dias_no_mes
+
+maior_faturamento = max(faturamento_mensal)
+menor_faturamento = min(faturamento_mensal)
+
+dias_acima_da_media = sum(f > media_mensal for f in faturamento_mensal)
+
+print(f"O menor faturamento diário foi {menor_faturamento}.")
+print(f"O maior faturamento diário foi {maior_faturamento}.")
+print(f"{dias_acima_da_media} dias no mês tiveram faturamento acima da média mensal.")
